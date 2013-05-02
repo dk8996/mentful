@@ -1,6 +1,7 @@
 body {
 	background-color: #CCC;
 }
+
 .text-center [class*="span"] {
   text-align: center;
   margin: 5px 0;
