@@ -1,0 +1,10 @@
+body {
+	background-color: #CCC;
+}
+.text-center [class*="span"] {
+  text-align: center;
+  margin: 5px 0;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
