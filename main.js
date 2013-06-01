@@ -1,3 +1,20 @@
+
+
+handleMouseOut = function(element) {
+    console.log("handleMouseOut");
+    var xy = getCoords(event, element);
+    var socket = io.connect('http://ec2-54-243-14-81.compute-1.amazonaws.com:9123');
+    
+    socket.emit('sendEvent', {
+	event : 'mouseOut',
+	id : "1",
+	creative_width : element.clientWidth,
+	creative_height : element.clientHeight,
+	x : xy[0],
+	y : xy[1]
+    });
+};
+
 handleMouseMove = function(element) {
     console.log("handleMouseMove");
     var xy = getCoords(event, element);
@@ -5,24 +22,40 @@ handleMouseMove = function(element) {
 
     var socket = io.connect('http://ec2-54-243-14-81.compute-1.amazonaws.com:9123');
     socket.emit('sendEvent', {
-	event : 'click',
+	event : 'mouseMove',
+	id : "1",
+	creative_width :element.clientWidth,
+	creative_height :element.clientHeight,
 	x : xy[0],
 	y : xy[1]
     });
 
     socket.on('update', function(data) {
-	console.log('Someone sent a update event');
-	var xy = scale(data.x, data.y, 270, 180, 720, 480, 5, 5);
-	var newdiv = $("<div/>").css('background', 'url("dot.png")').css('position', 'absolute').css('width', '10px')
-		.css('height', '10px').css('top', xy[1] + 'px').css('left', xy[0] + 'px');
-	$("#image").append(newdiv);
-
+//		if (data.event === 'mouseMove') {
+//		    console.log('Someone sent a update event');
+//		    var xy = scale(data.x, data.y, element.clientWidth, element.clientHeight, $("#image")[0].clientWidth, $("#image")[0].clientHeight, 5, 5);
+//		    var newdiv = $("<div/>").css('background', 'url("dot.png")').css('position', 'absolute')
+//			    .css('width', '10px').css('height', '10px').css('top', xy[1] + 'px').css('left', xy[0]
+//				    + 'px');
+//		    $("#image").append(newdiv);
+//		}
     });
 
 };
 
 handleMouseOver = function(element) {
     console.log("handleMouseOver");
+    var xy = getCoords(event, element);
+    var socket = io.connect('http://ec2-54-243-14-81.compute-1.amazonaws.com:9123');
+    
+    socket.emit('sendEvent', {
+	event : 'mouseOver',
+	id : "1",
+	creative_width : element.clientWidth,
+	creative_height : element.clientHeight,
+	x : xy[0],
+	y : xy[1]
+    });
 };
 
 handleClick = function(element) {
@@ -33,16 +66,22 @@ handleClick = function(element) {
     var socket = io.connect('http://ec2-54-243-14-81.compute-1.amazonaws.com:9123');
     socket.emit('sendEvent', {
 	event : 'click',
+	id : "1",
+	creative_width :element.clientWidth,
+	creative_height :element.clientHeight,
 	x : xy[0],
 	y : xy[1]
     });
 
     socket.on('update', function(data) {
-	console.log('Someone sent a update event');
-	var xy = scale(data.x, data.y, 270, 180, 720, 480, 25, 25);
-	var newdiv = $("<div/>").css('background', 'url("dot.png")').css('position', 'absolute').css('width', '50px')
-		.css('height', '50px').css('top', xy[1] + 'px').css('left', xy[0] + 'px');
-	$("#image").append(newdiv);
+//		if (data.event === 'click') {
+//		    console.log('Someone sent a update event');
+//		    var xy = scale(data.x, data.y, element.clientWidth, element.clientHeight, $("#image")[0].clientWidth, $("#image")[0].clientHeight, 5, 5);
+//		    var newdiv = $("<div/>").css('background', 'url("dot_green.png")').css('position', 'absolute')
+//			    .css('width', '10px').css('height', '10px').css('top', xy[1] + 'px').css('left', xy[0]
+//				    + 'px');
+//		    $("#image").append(newdiv);
+//		}
     });
 
 };
@@ -105,3 +144,13 @@ function getCoords(e, element) {
 
     return [ x, y ];
 }
+
+//window.onload = function() {
+
+//document.getElementsByTagName("iframe")[0].contentWindow.document.onclick = handleClick;
+//document.getElementsByTagName("iframe")[0].contentWindow.document.onmousemove = handleMouseMove;
+
+//document.getElementsByTagName("iframe")[0].getElementsByTagName("body").onclick = handleClick;
+//document.getElementsByTagName("iframe")[0].getElementsByTagName("body").onmousemove = handleMouseMove;
+
+//};

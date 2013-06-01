@@ -1,11 +1,42 @@
+.brand {
+    font-family: 'Arvo';
+}
+
 body {
-	background-color: #CCC;
+
 }
 
 .text-center [class*="span"] {
-  text-align: center;
-  margin: 5px 0;
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
+	text-align: center;
+	margin: 5px 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#heatmapArea {
+	position: relative;
+	float: left;
+	width: 300px;
+	height: 250px;
+	background-image: url(ad1.jpg);
+	border: 1px dashed black;
+}
+
+#heatmapAreaClicks {
+	position: relative;
+	float: left;
+	width: 300px;
+	height: 250px;
+	background-image: url(ad1.jpg);
+	border: 1px dashed black;
+}
+
+#reporting {
+	background-color: #CCC;
+}
+
+table,th, td {
+    border: 0px;
+    border-collapse:collapse;
 }

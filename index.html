@@ -32,11 +32,6 @@ body {
 	</div>
 	<div class='container'>
 		<div class='span12 main'>
-			<div id='image'
-				style="background: url('http://temp.webswithwordpress.com/wp-content/uploads/2012/10/winston-pic2.jpg'); width: 720px; height: 480px; position: relative;">
-				<div style="position: absolute; top: 274px; left: 161px; background: url('dot.png'); width: 10px; height: 10px;"></div>
-
-			</div>
 			<div id='content' class='row-fluid'>
 				<div class='span9 main'>
 					<p>
@@ -51,8 +46,11 @@ body {
 					</p>
 				</div>
 				<div class='span3'>
-					<img onmouseover='handleMouseOver(this)' onclick='handleClick(this)' onmousemove='handleMouseMove(this)'
-						src="http://temp.webswithwordpress.com/wp-content/uploads/2012/10/winston-pic2.jpg">
+					<img onmouseout= 'handleMouseOut(this)' onmouseover='handleMouseOver(this)' onclick='handleClick(this)' onmousemove='handleMouseMove(this)'
+						src="ad1.jpg">
+				    <a href="http://www.mentful.com/heatmaptest.html" target="_blank">Live Heatmap</a>
+				    <br>
+					<a href="http://www.mentful.com/heatmapclick.html" target="_blank">Clicks</a>
 				</div>
 			</div>
 		</div>
@@ -66,8 +64,5 @@ body {
 <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="http://ec2-54-243-14-81.compute-1.amazonaws.com:9123/socket.io/socket.io.js"></script>
-<script src="lib/heatmap.js"></script>
-<script src="heatmaphelper.js"></script>
 <script src="main.js"></script>
-
 </html>
