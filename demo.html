@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link type="text/css" href="main.css" rel="stylesheet" />
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {
+	packages : [ "corechart" ]
+    });
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+		[ 'Time', 'Time Spent on a Creative (in seconds)', 'Number of Clicks' ], [ '4 hours ago', 420, 300 ],
+		[ '3 hours ago', 440, 290 ], [ '2 hours ago', 560, 200 ], [ 'Last Hour', 440, 260 ] ]);
+
+	var options = {
+	    title : 'Audience Engagement by Time',
+		backgroundColor: '#CCC',
+	    hAxis : {
+		title : 'Time',
+		titleTextStyle : {
+		    color : 'red'
+		}
+	    }
+	};
+
+	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+	chart.draw(data, options);
+    }
+</script>
+</head>
+
+<body>
+	<p>Ad</p>
+	<img onmouseout='handleMouseOut(this)' onmouseover='handleMouseOver(this)' onclick='handleClick(this)'
+		onmousemove='handleMouseMove(this)' src="ad1.jpg">
+	<div id="reporting">
+		<h2>Reporting</h2>
+		<table>
+			<tr>
+				<td><h4>Heatmap<h4></td>
+				<td><h4>Clicks<h4></td>
+			</tr>
+			<tr>
+				<td><div id="heatmapArea"></div></td>
+				<td><div id="heatmapAreaClicks"></div></td>
+				<td><div id="chart_div" style="width: 550px; height: 350px;"></div></td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://ec2-54-243-14-81.compute-1.amazonaws.com:9123/socket.io/socket.io.js"></script>
+<script src="lib/heatmap.js"></script>
+<script src="main.js"></script>
+<script src="heatmaphelper.js"></script>
+<script src="heatmapclick.js"></script>
+</html>
