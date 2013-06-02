@@ -31,7 +31,7 @@ body {
 		</div>
 	</div>
 	<div class='container'>
-		<div class='hero-unit' style='padding: 10px'>
+		<div class='well span12' style='padding: 10px'>
 			<h4>Ad</h4>
 			<img onmouseout='handleMouseOut(this)' onmouseover='handleMouseOver(this)' onclick='handleClick(this)'
 				onmousemove='handleMouseMove(this)' src="ad1.jpg">

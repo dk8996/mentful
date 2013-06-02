@@ -1,5 +1,4 @@
-heatmapMouseOverFunctions = {};
-  
+
   startUpdateListener = function() {
     console.log("startUpdateListener");
    // var xy = getCoords(event, element);
@@ -19,14 +18,14 @@ heatmapMouseOverFunctions = {};
 	simulatedEvent = document.createEvent("MouseEvent");
         simulatedEvent.initMouseEvent("mousemove", true, true, window, 1, window.innerWidth, window.innerHeight, xy[0], xy[1], false, false, false, false, 0, null);
 	
-        heatmapMouseOverFunctions.onclick(simulatedEvent);
+	tmp.onclick(simulatedEvent);
 	}
 	
 	if(data.event === 'mouseOut'){
 	simulatedEvent = document.createEvent("MouseEvent");
 	simulatedEvent.initMouseEvent("mousemove", true, true, window, 1, window.innerWidth, window.innerHeight, xy[0], xy[1], false, false, false, false, 0, null);
 		
-	heatmapMouseOverFunctions.onmouseout(simulatedEvent);
+	tmp.onmouseout(simulatedEvent);
 	}
 	
 	
@@ -67,7 +66,8 @@ heatmapOnLoad = function() {
 		timer = null;
 	    }
 	};
-	heatmapMouseOverFunctions.onmousemove = function(ev) {
+
+	tmp.onmousemove = tmp.onclick = function(ev) {
 	    mouseMove = true;
 	    mouseOver = true;
 	    if (active) {
@@ -85,9 +85,7 @@ heatmapOnLoad = function() {
 	    }
 	    mouseMove = false;
 	};
-	heatmapMouseOverFunctions.onclick = heatmapMouseOverFunctions.onmousemove;
-	
-	heatmapMouseOverFunctions["ontouchmove"] = function(ev) {
+	tmp["ontouchmove"] = function(ev) {
 	    var touch = ev.touches[0],
 	    // simulating a mousemove event
 	    simulatedEvent = document.createEvent("MouseEvent");
